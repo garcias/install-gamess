@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
   config.ssh.forward_agent = true
   config.ssh.forward_x11 = true
   config.vm.provider :virtualbox do |v|
-    v.name = "GAMESS"
+    v.name = "install-gamess"
     v.memory = 1024
     v.cpus = 2
   end
