@@ -12,6 +12,7 @@ sudo apt-get install -y gfortran libblas-dev libatlas-base-dev csh
 tar -xzf gamess-built.tar.gz
 mv gamess/ $INSTALL_DIR/
 cd $INSTALL_DIR/gamess
+mkdir ~/tmp
 
 # Run tests and report output
 ./runall 00 >& runall.log
