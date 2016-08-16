@@ -8,7 +8,7 @@ INSTALL_DIR=~
 sudo apt-get install -y gfortran libblas-dev libatlas-base-dev csh
 
 # Install Java runtime, Jmol, and OpenBabel
-apt-get install -y default-jre jmol openbabel
+sudo apt-get install -y default-jre jmol openbabel
 
 # Extract the gamess directory
 tar -xzf gamess-built.tar.gz
