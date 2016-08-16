@@ -14,7 +14,10 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "shell", privileged: true, inline: $SYSTEM_PREP
-  config.vm.provision "shell", privileged: false, inline: $BUILD_PREP
+  config.vm.provision "shell", 
+    privileged: false, 
+    path: "install-gamess.sh",
+    args: "/vagrant/gamess-built.tar.gz"
 
 end
 
@@ -35,14 +38,3 @@ apt-get update -qq
 apt-get install -y xauth git curl
 
 SCRIPT
-
-
-$BUILD_PREP = <<SCRIPT
-
-cd ~
-cp /vagrant/gamess-built.tar.gz ./
-cp /vagrant/install-gamess.sh ./
-chmod u+x install-gamess.sh
-
-SCRIPT
-
