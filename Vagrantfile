@@ -24,22 +24,19 @@ $SYSTEM_PREP = <<SCRIPT
 SHARED_MAX=$((768 * 1024 * 1024))
 SHARED_ALL=$((768 * 1024 * 1024 / 4096))
 
-echo "=== Preparing system for GAMESS install ==="
-echo "Updating apt-get"
+# Update apt-get and install basic tools and libraries
 apt-get update -qq
-echo "Installing build tools"
 apt-get install -y gfortran csh xauth git curl
-echo "Installing atlas math libraries"
 apt-get install -y libblas-dev libatlas-base-dev
+
 echo "Setting shmmax to $SHARED_MAX"
 echo "Setting shmall to $SHARED_ALL"
 echo "kernel.shmmax = $SHARED_MAX" >> /etc/sysctl.conf
 echo "kernel.shmall = $SHARED_ALL" >> /etc/sysctl.conf
 sysctl -p
-echo "Installing Java runtime and Jmol"
-apt-get install -y default-jre jmol
-echo "Installing OpenBabel"
-apt-get install -y openbabel
+
+# Install Java runtime, Jmol, and OpenBabel
+apt-get install -y default-jre jmol openbabel
 
 SCRIPT
 
