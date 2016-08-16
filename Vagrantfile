@@ -24,19 +24,15 @@ $SYSTEM_PREP = <<SCRIPT
 SHARED_MAX=$((768 * 1024 * 1024))
 SHARED_ALL=$((768 * 1024 * 1024 / 4096))
 
-# Update apt-get and install basic tools and libraries
-apt-get update -qq
-apt-get install -y gfortran csh xauth git curl
-apt-get install -y libblas-dev libatlas-base-dev
-
 echo "Setting shmmax to $SHARED_MAX"
 echo "Setting shmall to $SHARED_ALL"
 echo "kernel.shmmax = $SHARED_MAX" >> /etc/sysctl.conf
 echo "kernel.shmall = $SHARED_ALL" >> /etc/sysctl.conf
 sysctl -p
 
-# Install Java runtime, Jmol, and OpenBabel
-apt-get install -y default-jre jmol openbabel
+# Update apt-get and install basic tools
+apt-get update -qq
+apt-get install -y xauth git curl
 
 SCRIPT
 
