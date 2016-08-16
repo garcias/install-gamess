@@ -1,6 +1,12 @@
 #!/bin/bash
 
-# Assumes that gamess-built.tar.gz is in repository directory
+# $1 is the path to the archive of built GAMESS
+# typically named "gamess-built.tar.gz"
+if [ -b $1 ]
+  then
+    echo "Exit. $1 does not exist"
+    exit 1
+fi
 
 INSTALL_DIR=~
 
@@ -10,9 +16,9 @@ sudo apt-get install -y gfortran libblas-dev libatlas-base-dev csh
 # Install Java runtime, Jmol, and OpenBabel
 sudo apt-get install -y default-jre jmol openbabel
 
-# Extract the gamess directory
-tar -xzf gamess-built.tar.gz
-mv gamess/ $INSTALL_DIR/
+# Extract the gamess directory into $INSTALL_DIR
+cd $INSTALL_DIR
+tar -xzf $1
 cd $INSTALL_DIR/gamess
 mkdir ~/tmp
 
