@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# $1 is the path to the archive of built GAMESS
+# $1 is the absolute path to the archive of built GAMESS
 # typically named "gamess-built.tar.gz"
 if [ -b $1 ]
   then
