@@ -28,8 +28,7 @@ grep -i --color 'terminated normally' exam*.log
 NUM_PASSED=$(grep -i --color 'terminated normally' exam*.log | wc -l)
 echo "GAMESS passed $NUM_PASSED of 47 tests"
 
-# Clean up gamess directory of test files
-rm exam??.log
+# Clean up tmp directory in case of failure
 rm /tmp/exam??.*
 
 echo "PATH=$PATH:~/gamess" >> ~/.bashrc
