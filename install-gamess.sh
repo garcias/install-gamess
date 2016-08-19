@@ -24,9 +24,10 @@ mkdir ~/tmp
 
 # Run tests and report output
 ./runall 00 >& runall.log
-grep -i --color 'terminated normally' exam*.log
-NUM_PASSED=$(grep -i --color 'terminated normally' exam*.log | wc -l)
+grep -i --color 'terminated normally' exam*.log > exam-report.log
+NUM_PASSED=$(cat exam-report.log | wc -l)
 echo "GAMESS passed $NUM_PASSED of 47 tests"
+echo "Check exam-report.log for list of failed tests"
 
 # Clean up tmp directory in case of failure
 rm /tmp/exam??.*
