@@ -26,7 +26,7 @@ The default configuration is for a single-processor node and only 768 MB of shar
 ## What is missing?
 
 GAMESS is available to the public with an *academic* license, not an open-source one. 
-It cannot be distributed publicly. 
+*It cannot be distributed publicly.* 
 For the scripts to work, someone at your institution (probably your teacher) must first build it from source code and then distribute it to you as an archive named `gamess-built.tar.gz`.
 
 ## Why use VMs?
