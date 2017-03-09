@@ -8,18 +8,15 @@ if [ -b $1 ]
     exit 1
 fi
 
-INSTALL_DIR=~
-
 # Install dependencies
 sudo apt-get install -y gfortran libblas-dev libatlas-base-dev csh
 
 # Install Java runtime, Jmol, and OpenBabel
 sudo apt-get install -y default-jre jmol openbabel
 
-# Extract the gamess directory into $INSTALL_DIR
-cd $INSTALL_DIR
-tar -xzf $1
-cd $INSTALL_DIR/gamess
+tar -xzf $1 gamess
+mv gamess/ ~
+cd ~/gamess
 mkdir ~/tmp
 
 # Run tests and report output
@@ -30,7 +27,7 @@ echo "GAMESS passed $NUM_PASSED of 47 tests"
 echo "Check exam-report.log for list of failed tests"
 
 # Clean up tmp directory in case of failure
-rm /tmp/exam??.*
+rm ~/tmp/exam??.*
 
 echo "PATH=$PATH:~/gamess" >> ~/.bashrc
 
