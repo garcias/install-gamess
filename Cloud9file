@@ -18,4 +18,3 @@ sudo apt-get install -y xauth git curl
 
 # Run the GAMESS installation script
 chmod u+x install-gamess.sh
-./install-gamess.sh $(pwd)/gamess-built.tar.gz
